@@ -32,6 +32,7 @@ namespace PartyInvites.Controllers
             if (ModelState.IsValid)
             {
                 //TODO: Email response to the party organizer
+                /*
                 try
                 {
                     MailAddress from = new MailAddress("xxxxxxx@tut.by", "Party organizer site");
@@ -51,6 +52,7 @@ namespace PartyInvites.Controllers
                 {
                     MessageBox.Show(exc.Message, "Error of sending message to the party organizer", MessageBoxButtons.OK);
                 }
+                */
                 return View("Thanks", guestResponse);
             }
             else

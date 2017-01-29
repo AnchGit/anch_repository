@@ -8,17 +8,22 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <title>Index</title>
+    <style>
+        .btn a { color: white; text-decoration: none }
+        body { background-color: #F1F1F1; }
+    </style>
 </head>
 <body>
-    <div>
-        @ViewBag.Greeting World (from the view)
-
-        <p>We're going to have an exciting New Year's Eve party!! <br />
-        <!-- <img src="@Url.Content("~/Images/party.jpg")" alt="IMAGES" /> -->
-        <img src="~/Images/party.jpg"/>
-        </p>
-        @Html.ActionLink("RSVP now", "RsvpForm")
+    <div class="text-center">
+        <h2>We're going to have an exciting New Year's Eve party!</h2>
+        <h3>And you're invited</h3>
+        <img src="~/Images/party.jpg" class="glyphicon-align-center"/><br /><br />
+        <div class="btn btn-success">
+            @Html.ActionLink("RSVP now", "RsvpForm")
+        </div>
     </div>
 </body>
 </html>
