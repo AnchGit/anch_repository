@@ -34,7 +34,7 @@ namespace PartyInvites.Controllers
                 //TODO: Email response to the party organizer
                 try
                 {
-                    MailAddress from = new MailAddress("krupnij@tut.by", "Party organizer site");
+                    MailAddress from = new MailAddress("xxxxxxx@tut.by", "Party organizer site");
                     MailAddress to = new MailAddress("aleksandr.stepanov@gmail.com");
                     MailMessage mail = new MailMessage(from, to);
                     mail.Subject = "New Year's Eve party participation!";
@@ -44,7 +44,7 @@ namespace PartyInvites.Controllers
                     smtp.EnableSsl = true;
                     //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     //smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new NetworkCredential("krupnij@tut.by", "ZhdAn0v1chi_645");
+                    smtp.Credentials = new NetworkCredential("xxxxxxxx@tut.by", "password");
                     smtp.Send(mail);
                 }
                 catch (Exception exc)
