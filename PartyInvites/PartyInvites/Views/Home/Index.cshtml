@@ -12,7 +12,13 @@
 </head>
 <body>
     <div>
-        @ViewBag.Greeting World (from the view) 
+        @ViewBag.Greeting World (from the view)
+
+        <p>We're going to have an exciting New Year's Eve party!! <br />
+        <!-- <img src="@Url.Content("~/Images/party.jpg")" alt="IMAGES" /> -->
+        <img src="~/Images/party.jpg"/>
+        </p>
+        @Html.ActionLink("RSVP now", "RsvpForm")
     </div>
 </body>
 </html>
