@@ -50,5 +50,55 @@ namespace LanguageFeatures.Controllers
 
             return View("Result", (object)stringArray[2]);
         }
+
+        public ViewResult UseExtension()
+        {
+            //create and populate ShoppingCart
+            ShoppingCart cart = new ShoppingCart
+            {
+                Products = new List<Product>
+                {
+                    new Product { Name = "Canoe", Price = 99M },
+                    new Product { Name = "Lifejacket", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Price = 13.50M },
+                    new Product { Name = "Basket net", Price = 9.60M }
+                }
+            };
+
+            //get the total value of the products in the cart
+            decimal cartTotal = cart.TotalPrices();
+
+            return View("Result", (object)String.Format("Total: {0:c}", cartTotal));
+        }
+
+        public ViewResult UseExtensionEnumerable()
+        {
+            //create and populate ShoppingCart
+            IEnumerable<Product> products = new MyShoppingCart
+            {
+                Products = new List<Product>
+                {
+                    new Product { Name = "Canoe", Price = 99M },
+                    new Product { Name = "Lifejacket", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Price = 13.50M },
+                    new Product { Name = "Basket net", Price = 9.60M }
+                }
+            };
+
+            //create and populate an array of Product objects
+            Product[] productArray =
+            {
+                    new Product { Name = "Canoe", Price = 99M },
+                    new Product { Name = "Lifejacket", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Price = 13.50M },
+                    new Product { Name = "Basket net", Price = 9.60M }
+            };
+
+            //get the total value of the products in the cart
+            decimal cartTotal = products.MyTotalPrices();
+            decimal arrayTotal = productArray.MyTotalPrices();
+
+            return View("Result", (object)String.Format("Cart total: {0:c}, Array total: {1:c}", cartTotal, arrayTotal));
+        }
     }
 }
