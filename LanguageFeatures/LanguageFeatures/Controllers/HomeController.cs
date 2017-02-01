@@ -73,7 +73,7 @@ namespace LanguageFeatures.Controllers
 
         public ViewResult UseExtensionEnumerable()
         {
-            //create and populate ShoppingCart
+            //create and populate MyShoppingCart
             IEnumerable<Product> products = new MyShoppingCart
             {
                 Products = new List<Product>
@@ -99,6 +99,29 @@ namespace LanguageFeatures.Controllers
             decimal arrayTotal = productArray.MyTotalPrices();
 
             return View("Result", (object)String.Format("Cart total: {0:c}, Array total: {1:c}", cartTotal, arrayTotal));
+        }
+
+        public ViewResult UseFilterExtensionMethod()
+        {
+            //create and populate MyShoppingCart
+            IEnumerable<Product> products = new MyShoppingCart
+            {
+                Products = new List<Product>
+                {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 99M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 13.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 9.60M }
+                }
+            };
+
+            decimal total = 0;
+            foreach (Product prod in products.FilterByCategory("Basketball"))
+            {
+                total += prod.Price;
+            }
+
+            return View("Result", (object)String.Format("Total: {0}", total));
         }
     }
 }
