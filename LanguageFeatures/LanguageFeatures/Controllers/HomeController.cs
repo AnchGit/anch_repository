@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -193,6 +194,23 @@ namespace LanguageFeatures.Controllers
             }
 
             return View("Result", (object)String.Format("Total: {0}", total));
+        }
+
+        public ViewResult CreateAnonArray()
+        {
+            var oddsAndEnds = new[]
+            {
+                new {Name = "MVC", Category = "Pattern"},
+                new {Name = "Hat", Category = "Clothing"},
+                new {Name = "Cucumber", Category = "Plant"}
+            };
+
+            StringBuilder result = new StringBuilder();
+            foreach (var item in oddsAndEnds)
+            {
+                result.Append(item.Name).Append(" - ");
+            }
+            return View("Result", (object)result.ToString());
         }
     }
 }
