@@ -212,5 +212,93 @@ namespace LanguageFeatures.Controllers
             }
             return View("Result", (object)result.ToString());
         }
+
+        public ViewResult FindProducts()
+        {
+            Product[] products =
+            {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 9M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 3.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 15.60M }
+            };
+
+            //define array to hold the result
+            Product[] foundProducts = new Product[3];
+            //sort the contents of the array
+            Array.Sort(products, (item1, item2) =>
+            {
+                return Comparer<decimal>.Default.Compare(item2.Price, item1.Price);
+            });
+            //get the first three items in the array as the result
+            Array.Copy(products, foundProducts, 3);
+
+            //create the result
+            StringBuilder result = new StringBuilder();
+            foreach (Product prod in foundProducts)
+            {
+                result.AppendFormat("Price: {0}; ", prod.Price);
+            }
+
+            return View("Result", (object)result.ToString());
+        }
+
+        public ViewResult FindProductsLINQ()
+        {
+            Product[] products =
+            {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 9M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 3.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 15.60M }
+            };
+
+            var foundProducts = from match in products
+                                orderby match.Price ascending
+                                select new { match.Name, match.Price };
+
+            //create the result
+            int count = 0;
+            StringBuilder result = new StringBuilder();
+            foreach (var prod in foundProducts)
+            {
+                result.AppendFormat("Price: {0}; ", prod.Price);
+                if (++count == 3)
+                {
+                    break;
+                }
+            }
+
+            return View("Result", (object)result.ToString());
+        }
+
+        public ViewResult FindProductsLINQDot()
+        {
+            Product[] products =
+            {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 9M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 3.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 15.60M }
+            };
+
+            var foundProducts = products.OrderByDescending(e => e.Price)
+                                .Take(3)
+                                .Select(e => new { e.Name, e.Price });
+
+            //create the result
+            int count = 0;
+            StringBuilder result = new StringBuilder();
+            foreach (var prod in foundProducts)
+            {
+                result.AppendFormat("Price: {0}; ", prod.Price);
+                if (++count == 3)
+                {
+                    break;
+                }
+            }
+
+            return View("Result", (object)result.ToString());
+        }
     }
 }
