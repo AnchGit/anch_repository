@@ -287,18 +287,56 @@ namespace LanguageFeatures.Controllers
                                 .Select(e => new { e.Name, e.Price });
 
             //create the result
-            int count = 0;
             StringBuilder result = new StringBuilder();
             foreach (var prod in foundProducts)
             {
                 result.AppendFormat("Price: {0}; ", prod.Price);
-                if (++count == 3)
-                {
-                    break;
-                }
             }
 
             return View("Result", (object)result.ToString());
+        }
+
+        public ViewResult FindProductsDefLINQDot()
+        {
+            Product[] products =
+            {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 9M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 3.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 15.60M }
+            };
+
+            var foundProducts = products.OrderByDescending(e => e.Price)
+                                .Take(3)
+                                .Select(e => new { e.Name, e.Price });
+
+            products[2] = new Product { Name = "Stadium", Price = 96750M };
+
+            //create the result
+            StringBuilder result = new StringBuilder();
+            foreach (var prod in foundProducts)
+            {
+                result.AppendFormat("Price: {0}; ", prod.Price);
+            }
+
+            return View("Result", (object)result.ToString());
+        }
+
+        public ViewResult SumProducts()
+        {
+            Product[] products =
+            {
+                    new Product { Name = "Canoe", Category = "Watersports", Price = 9M },
+                    new Product { Name = "Lifejacket", Category = "Watersports", Price = 42.35M },
+                    new Product { Name = "Basketball ball", Category = "Basketball", Price = 3.50M },
+                    new Product { Name = "Basket net", Category = "Basketball", Price = 15.60M }
+            };
+
+            var results = products.Sum(e => e.Price);
+
+            products[2] = new Product { Name = "Stadium", Price = 96750M };
+
+            return View("Result", (object)String.Format("Sum: {0}", results));
         }
     }
 }
