@@ -31,3 +31,13 @@ D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Sys
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\obj\Debug\EssentialTools.csprojResolveAssemblyReference.cache
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\obj\Debug\EssentialTools.dll
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\obj\Debug\EssentialTools.pdb
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.dll
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Common.dll
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Mvc.dll
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\WebActivator.dll
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.pdb
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.xml
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Common.pdb
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Common.xml
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Mvc.pdb
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools\bin\Ninject.Web.Mvc.xml
