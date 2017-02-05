@@ -11,13 +11,13 @@ namespace EssentialTools.Controllers
         private IValueCalculator calc;
         private Product[] products =
         {
-            new Product { Name = "Canoe", Category = "Watersports", Price = 135000M },
+            new Product { Name = "Canoe", Category = "Watersports", Price = 1350M },
             new Product { Name = "Lifejacket", Category = "Watersports", Price = 270M },
             new Product { Name = "Tennis ball", Category = "Tennis", Price = 13.50M },
             new Product { Name = "Tennis net", Category = "Tennis", Price = 78.95M }
         };
 
-        public HomeController(IValueCalculator calcParam)
+        public HomeController(IValueCalculator calcParam, IValueCalculator calc2)
         {
             calc = calcParam;
         }
