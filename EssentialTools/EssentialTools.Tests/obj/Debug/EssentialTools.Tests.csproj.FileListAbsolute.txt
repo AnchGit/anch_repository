@@ -35,3 +35,6 @@ D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\b
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\obj\Debug\EssentialTools.Tests.csprojResolveAssemblyReference.cache
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\obj\Debug\EssentialTools.Tests.dll
 D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\obj\Debug\EssentialTools.Tests.pdb
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\bin\Debug\EssentialTools.Tests.dll.config
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\bin\Debug\Moq.dll
+D:\Documents\Anch\Programs\anch_repository\EssentialTools\EssentialTools.Tests\bin\Debug\Moq.xml
