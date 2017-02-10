@@ -3,3 +3,16 @@ D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\De
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.csprojResolveAssemblyReference.cache
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.dll
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.pdb
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Helpers.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Mvc.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Razor.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Helpers.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Mvc.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Razor.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Razor.xml
