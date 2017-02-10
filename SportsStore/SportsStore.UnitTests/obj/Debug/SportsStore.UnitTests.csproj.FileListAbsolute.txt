@@ -46,3 +46,5 @@ D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.xml
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin\Debug\EntityFramework.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.UnitTests\bin\Debug\EntityFramework.xml
