@@ -45,3 +45,7 @@ D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\Nin
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Common.xml
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Mvc.pdb
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Mvc.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\EntityFramework.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\EntityFramework.SqlServer.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\EntityFramework.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.WebUI\bin\EntityFramework.SqlServer.xml

@@ -16,3 +16,8 @@ D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\De
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.xml
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\SportsStore.Domain.dll.config
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\EntityFramework.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\EntityFramework.xml
+D:\Documents\Anch\Programs\anch_repository\SportsStore\SportsStore.Domain\bin\Debug\EntityFramework.SqlServer.xml
