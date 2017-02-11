@@ -37,7 +37,7 @@ namespace SportsStore.WebUI
 
             routes.MapRoute(null, "{controller}/{action}");
 
-            /*
+            /* - изменено на более наглядную для пользователя маршрутизацию
             routes.MapRoute(
                 name: null,
                 url: "Page{page}",
