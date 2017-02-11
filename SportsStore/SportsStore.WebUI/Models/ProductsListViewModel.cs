@@ -6,6 +6,6 @@ namespace SportsStore.WebUI.Models
     public class ProductsListViewModel
     {
         public IEnumerable<Product> Products { get; set; }
-        PagingInfo PagingInfo { get; set; }
+        public PagingInfo PagingInfo { get; set; }
     }
 }
