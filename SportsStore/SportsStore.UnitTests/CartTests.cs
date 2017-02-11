@@ -74,5 +74,24 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(target.Lines.Count(), 2);
         }
 
+        [TestMethod]
+        public void Calculate_Cart_Total()
+        {
+            // Arrange
+            // Создание нескольких тестовых товаров
+            Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100M };
+            Product p2 = new Product { ProductID = 2, Name = "P2", Price = 50M };
+            // Создание новой корзины
+            Cart target = new Cart();
+
+            // Act
+            target.AddItem(p1, 1);
+            target.AddItem(p2, 1);
+            target.AddItem(p1, 3);
+            decimal result = target.ComputeTotalValue();
+
+            // Assert
+            Assert.AreEqual(result, 450M);
+        }
     }
 }
