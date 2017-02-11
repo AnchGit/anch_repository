@@ -25,12 +25,12 @@ namespace SportsStore.WebUI
             );
 
             routes.MapRoute(null,
-                "category",
+                "{category}",
                 new { controller = "Product", action = "List", page = 1}
             );
 
             routes.MapRoute(null,
-                "category/Page{page}",
+                "{category}/Page{page}",
                 new { controller = "Product", action = "List" },
                 new { page = @"\d+" }
             );
