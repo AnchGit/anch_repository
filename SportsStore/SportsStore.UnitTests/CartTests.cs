@@ -133,7 +133,7 @@ namespace SportsStore.UnitTests
             // create a Cart
             Cart cart = new Cart();
             // create the controller
-            CartController target = new CartController(mock.Object);
+            CartController target = new CartController(mock.Object, null);
 
             // Act
             // add a product to the cart
@@ -157,7 +157,7 @@ namespace SportsStore.UnitTests
             // Создание экземпляра Cart
             Cart cart = new Cart();
             // Создание контроллера
-            CartController target = new CartController(mock.Object);
+            CartController target = new CartController(mock.Object, null);
 
             // Act
             // Добавление товара в корзину
@@ -175,7 +175,7 @@ namespace SportsStore.UnitTests
             // Создание экземпляра Cart
             Cart cart = new Cart();
             // Создание контроллера
-            CartController target = new CartController(null);
+            CartController target = new CartController(null, null);
 
             // Act
             // Вызов метода действия Index()
@@ -184,6 +184,31 @@ namespace SportsStore.UnitTests
             // Assert
             Assert.AreSame(result.Cart, cart);
             Assert.AreEqual(result.ReturnUrl, "myUrl");
+        }
+        
+        [TestMethod]
+        public void Cannot_Checkout_Empty_Cart()
+        {
+            // Arrange
+            // Создание имитированного обработчика заказов
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            // Создание пустой корзины
+            Cart cart = new Cart();
+            // Создание деталей о доставке
+            ShippingDetails shippingDetails = new ShippingDetails();
+            // Создание экземпляра контроллера
+            CartController target = new CartController(null, mock.Object);
+
+            // Act
+            ViewResult result = target.Checkout(cart, shippingDetails);
+
+            // Assert
+            // Проверка, что заказ не был передан обработчику
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
+            // Проверка, что метод вернул стандартное представление
+            Assert.AreEqual("", result.ViewName);
+            // Проверка, что представлению передана неверная модель
+            Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
         } 
     }
 }
