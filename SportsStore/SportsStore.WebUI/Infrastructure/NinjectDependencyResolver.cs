@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -33,7 +34,7 @@ namespace SportsStore.WebUI.Infrastructure
         private void AddBindings()
         {
             // Put bindings here (Здесь размещаются привязки)
-            /*
+            /* - это был тестовый репозиторий
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new List<Product>
             {
@@ -44,6 +45,13 @@ namespace SportsStore.WebUI.Infrastructure
             */
 
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
         }
     }
 }
