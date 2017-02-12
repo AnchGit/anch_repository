@@ -167,5 +167,23 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(result.RouteValues["action"], "Index");
             Assert.AreEqual(result.RouteValues["returnUrl"], "myUrl");
         }
+
+        [TestMethod]
+        public void Can_View_Cart_Contents()
+        {
+            // Arrange
+            // Создание экземпляра Cart
+            Cart cart = new Cart();
+            // Создание контроллера
+            CartController target = new CartController(null);
+
+            // Act
+            // Вызов метода действия Index()
+            CartIndexViewModel result = (CartIndexViewModel)target.Index(cart, "myUrl").ViewData.Model;
+
+            // Assert
+            Assert.AreSame(result.Cart, cart);
+            Assert.AreEqual(result.ReturnUrl, "myUrl");
+        } 
     }
 }
