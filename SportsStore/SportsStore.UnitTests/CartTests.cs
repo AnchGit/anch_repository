@@ -209,6 +209,32 @@ namespace SportsStore.UnitTests
             Assert.AreEqual("", result.ViewName);
             // Проверка, что представлению передана неверная модель
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
-        } 
+        }
+        
+        [TestMethod]
+        public void Cannot_Checkout_Invalid_ShippingDetails()
+        {
+            // Arrange
+            // Создание имитированного обработчика заказов
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            // Создание корзины с элементом
+            Cart cart = new Cart();
+            cart.AddItem(new Product(), 1);
+            // Создание экземпляра контроллера
+            CartController target = new CartController(null, mock.Object);
+            // Добавление ошибки в модель
+            target.ModelState.AddModelError("error", "error");
+
+            // Act
+            ViewResult result = target.Checkout(cart, new ShippingDetails());
+
+            // Assert
+            // Проверка, что заказ не передается обработчику
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Never());
+            // Проверка, что метод возвращает стандартное представление
+            Assert.AreEqual("", result.ViewName);
+            // Проверка, что представлению передается недопустимая модель
+            Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
+        }
     }
 }
