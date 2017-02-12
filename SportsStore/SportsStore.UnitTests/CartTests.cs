@@ -226,6 +226,7 @@ namespace SportsStore.UnitTests
             target.ModelState.AddModelError("error", "error");
 
             // Act
+            // Попытка перехода к оплате
             ViewResult result = target.Checkout(cart, new ShippingDetails());
 
             // Assert
@@ -235,6 +236,31 @@ namespace SportsStore.UnitTests
             Assert.AreEqual("", result.ViewName);
             // Проверка, что представлению передается недопустимая модель
             Assert.AreEqual(false, result.ViewData.ModelState.IsValid);
+        }
+
+        [TestMethod]
+        public void Can_Checkout_And_Submit_Order()
+        {
+            // Arrange
+            // Создание имитированного обработчика заказов
+            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            // Создание корзины с элементом
+            Cart cart = new Cart();
+            cart.AddItem(new Product(), 1);
+            // Создание экземпляра контроллера
+            CartController target = new CartController(null, mock.Object);
+
+            // Act
+            // Попытка перехода к оплате
+            ViewResult result = target.Checkout(cart, new ShippingDetails());
+
+            // Assert
+            // Проверка, что заказ передан обработчику
+            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<ShippingDetails>()), Times.Once());
+            // Проверка, что метод возвращает представление Completed
+            Assert.AreEqual("Completed", result.ViewName);
+            // Проверка, что представлению передается допустимая модель
+            Assert.AreEqual(true, result.ViewData.ModelState.IsValid);
         }
     }
 }
