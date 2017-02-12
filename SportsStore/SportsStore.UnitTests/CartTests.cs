@@ -1,6 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportsStore.Domain.Entities;
+using Moq;
+using SportsStore.Domain.Abstract;
+using SportsStore.WebUI.Models;
+using SportsStore.WebUI.Controllers;
+using System.Web.Mvc;
 
 namespace SportsStore.UnitTests
 {
@@ -112,6 +118,30 @@ namespace SportsStore.UnitTests
 
             // Assert
             Assert.AreEqual(target.Lines.Count(), 0);
+        }
+
+        [TestMethod]
+        public void Can_Add_To_Cart()
+        {
+            // Arrange
+            // create the mock repository
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product { ProductID = 1, Name = "P1", Category = "Apples" }
+            }.AsQueryable());
+            // create a Cart
+            Cart cart = new Cart();
+            // create the controller
+            CartController target = new CartController(mock.Object);
+
+            // Act
+            // add a product to the cart
+            target.AddToCart(cart, 1, null);
+
+            // Assert
+            Assert.AreEqual(cart.Lines.Count(), 1);
+            Assert.AreEqual(cart.Lines.ToArray()[0].Product.ProductID, 1);
         }
     }
 }
