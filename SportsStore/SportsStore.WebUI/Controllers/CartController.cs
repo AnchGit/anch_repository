@@ -47,6 +47,11 @@ namespace SportsStore.WebUI.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
         /* - заменен на CartModelBinder
         private Cart GetCart()
         {
