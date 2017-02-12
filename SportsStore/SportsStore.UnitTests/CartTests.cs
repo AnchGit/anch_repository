@@ -143,5 +143,29 @@ namespace SportsStore.UnitTests
             Assert.AreEqual(cart.Lines.Count(), 1);
             Assert.AreEqual(cart.Lines.ToArray()[0].Product.ProductID, 1);
         }
+
+        [TestMethod]
+        public void Adding_Product_To_Cart_Goes_To_Cart_Screen()
+        {
+            // Arrange
+            // Создание имитированного хранилища
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product { ProductID = 1, Name = "P1",  Category = "Apples"}
+            }.AsQueryable());
+            // Создание экземпляра Cart
+            Cart cart = new Cart();
+            // Создание контроллера
+            CartController target = new CartController(mock.Object);
+
+            // Act
+            // Добавление товара в корзину
+            RedirectToRouteResult result = target.AddToCart(cart, 1, "myUrl");
+
+            // Assert
+            Assert.AreEqual(result.RouteValues["action"], "Index");
+            Assert.AreEqual(result.RouteValues["returnUrl"], "myUrl");
+        }
     }
 }
