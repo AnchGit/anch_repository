@@ -85,5 +85,51 @@ namespace SportsStore.UnitTests
             // Assert
             Assert.IsNull(result);
         }
+
+        [TestMethod]
+        public void Can_Save_Valid_Changes()
+        {
+            // Arrange
+            // Create mock repository
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            // Create the controller
+            AdminController target = new AdminController(mock.Object);
+            // Create a product
+            Product product = new Product { Name = "Test" };
+
+            // Act
+            // Try to save the product
+            ActionResult result = target.Edit(product);
+
+            // Assert
+            // Check that the repository was called
+            mock.Verify(m => m.SaveProduct(product));
+            // Check the method result type
+            Assert.IsNotInstanceOfType(result, typeof(ViewResult));
+        }
+
+        [TestMethod]
+        public void Cannot_Save_Invalid_Changes()
+        {
+            // Arrange
+            // Create mock repository
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            // Create the controller
+            AdminController target = new AdminController(mock.Object);
+            // Create a product
+            Product product = new Product { Name = "Test" };
+            // Add an error to the model state
+            target.ModelState.AddModelError("error", "error");
+
+            // Act
+            // Try to save the product
+            ActionResult result = target.Edit(product);
+
+            // Assert
+            // Check that the repository was not called
+            mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
+            // Check the method result type
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
     }
 }
