@@ -17,7 +17,7 @@ namespace SportsStore.Domain.Concrete
         {
             if (product.ProductID == 0)
             {
-                context.Products.Add(product)
+                context.Products.Add(product);
             }
             else
             {
