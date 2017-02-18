@@ -1,5 +1,7 @@
 # anch_repository
 
+DebuggingDemo - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 14
+
 EssentialTools - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 6
 
 LanguageFeatures - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 4
