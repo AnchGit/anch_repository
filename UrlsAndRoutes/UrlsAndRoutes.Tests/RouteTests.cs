@@ -139,6 +139,7 @@ namespace UrlsAndRoutes.Tests
             TestRouteMatch("~/Customer/List/All/Delete/Perm", "Customer", "List", new { id = "All", catchall = "Delete/Perm" });
             */
 
+            /* (5)
             TestRouteMatch("~/", "Home", "Index");
             TestRouteMatch("~/Home", "Home", "Index");
             TestRouteMatch("~/Home/Index", "Home", "Index");
@@ -148,6 +149,7 @@ namespace UrlsAndRoutes.Tests
             TestRouteFail("~/Home/OtherAction");
             TestRouteFail("~/Account/Index");
             TestRouteFail("~/Account/About");
+            */
         }
     }
 }

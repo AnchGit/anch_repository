@@ -69,6 +69,7 @@ namespace UrlsAndRoutes
             myRoute.DataTokens["UseNamespaceFallback"] = false;
             */
 
+            /* - тест (5)
             routes.MapRoute("ChromeRoute", "{*catchall}",
                 new { controller = "Home", action = "Index" },
                 new { customConstraint = new UserAgentConstraint("Chrome") },
@@ -81,6 +82,13 @@ namespace UrlsAndRoutes
                       id = new CompoundRouteConstraint(new IRouteConstraint[] {
                           new AlphaRouteConstraint(), new MinLengthRouteConstraint(6) })
                     },
+                new[] { "URLsAndRoutes.Controllers" });
+            */
+
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute("Default", "{controller}/{action}/{id}",
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "URLsAndRoutes.Controllers" });
         }
     }
