@@ -34,7 +34,7 @@ namespace UrlsAndRoutes.Tests
             return mockContext.Object;
         }
 
-        private void TestRoteMatch(string url, string controller, string action, object routeProperties = null, string httpMethod = "GET")
+        private void TestRouteMatch(string url, string controller, string action, object routeProperties = null, string httpMethod = "GET")
         {
             // Организация
             // Arrange
@@ -72,7 +72,7 @@ namespace UrlsAndRoutes.Tests
             return result;
         }
 
-        private void TestRoteFail(string url)
+        private void TestRouteFail(string url)
         {
             // Организация
             // Arrange
@@ -91,18 +91,63 @@ namespace UrlsAndRoutes.Tests
         [TestMethod]
         public void TestIncomingRoutes()
         {
+            /* - усовершенствовали маршрутизацию (1)
             // Проверить URL, который мы надеемся получить
             // check for the URL that is hoped for
-            TestRoteMatch("~/Admin/Index", "Admin", "Index");
+            TestRouteMatch("~/Admin/Index", "Admin", "Index");
 
             // Проверить значения, получаемые из сегментов
             // check that the values are being obtained from the segments
-            TestRoteMatch("~/One/Two", "One", "Two");
+            TestRouteMatch("~/One/Two", "One", "Two");
 
             // Удостовериться, что слишком много или слишком мало сегмнтов не приводя к совпадению
             // ensure that too many or too few segments fails to match
-            TestRoteFail("~/Admin/Index/Segment");
-            TestRoteFail("~/Admin");
+            TestRouteFail("~/Admin/Index/Segment");
+            TestRouteFail("~/Admin");
+            */
+
+            /* (2)
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Customer/List", "Customer", "List");
+            TestRouteFail("~/Customer/List/All");
+            TestRouteMatch("~/Shop/Index", "Home", "Index");
+            */
+
+            /* - без id = UrlParameter.Optional
+            TestRouteMatch("~/", "Home", "Index", new { id = "DefaultId" });
+            TestRouteMatch("~/Customer", "Customer", "Index", new { id = "DefaultId" });
+            TestRouteMatch("~/Customer/List", "Customer", "List", new { id = "DefaultId" });
+            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+            TestRouteFail("~/Customer/List/All/Delete");
+            */
+
+            /* (3)
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Customer/List", "Customer", "List");
+            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+            TestRouteFail("~/Customer/List/All/Delete");
+            */
+
+            /* (4)
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Customer", "Customer", "Index");
+            TestRouteMatch("~/Customer/List", "Customer", "List");
+            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+            TestRouteMatch("~/Customer/List/All/Delete", "Customer", "List", new { id = "All", catchall = "Delete" });
+            TestRouteMatch("~/Customer/List/All/Delete/Perm", "Customer", "List", new { id = "All", catchall = "Delete/Perm" });
+            */
+
+            TestRouteMatch("~/", "Home", "Index");
+            TestRouteMatch("~/Home", "Home", "Index");
+            TestRouteMatch("~/Home/Index", "Home", "Index");
+            TestRouteMatch("~/Home/About", "Home", "About");
+            TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
+            TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About", new { id = "MyId", catchall = "More/Segments" });
+            TestRouteFail("~/Home/OtherAction");
+            TestRouteFail("~/Account/Index");
+            TestRouteFail("~/Account/About");
         }
     }
 }
