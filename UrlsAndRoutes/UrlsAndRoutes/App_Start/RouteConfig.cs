@@ -13,6 +13,7 @@ namespace UrlsAndRoutes
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            // - Глава 15 начало
             /* - Default routing
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
@@ -85,11 +86,19 @@ namespace UrlsAndRoutes
                 new[] { "URLsAndRoutes.Controllers" });
             */
 
+            /*
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute("Default", "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "URLsAndRoutes.Controllers" });
+            */
+            // - Глава 15 конец
+
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute("MyRoute", "{controller}/{action}");
+            routes.MapRoute("MyOtherRoute", "App/{action}", new { controller = "Home" });
         }
     }
 }

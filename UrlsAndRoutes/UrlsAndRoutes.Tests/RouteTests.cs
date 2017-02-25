@@ -88,68 +88,71 @@ namespace UrlsAndRoutes.Tests
             Assert.IsTrue(result == null || result.Route == null);
         }
 
-        [TestMethod]
-        public void TestIncomingRoutes()
-        {
-            /* - усовершенствовали маршрутизацию (1)
-            // Проверить URL, который мы надеемся получить
-            // check for the URL that is hoped for
-            TestRouteMatch("~/Admin/Index", "Admin", "Index");
+        // - глава 15
+        //[TestMethod]
+        //public void TestIncomingRoutes()
+        //{
+        //    /* - усовершенствовали маршрутизацию (1)
+        //    // Проверить URL, который мы надеемся получить
+        //    // check for the URL that is hoped for
+        //    TestRouteMatch("~/Admin/Index", "Admin", "Index");
 
-            // Проверить значения, получаемые из сегментов
-            // check that the values are being obtained from the segments
-            TestRouteMatch("~/One/Two", "One", "Two");
+        //    // Проверить значения, получаемые из сегментов
+        //    // check that the values are being obtained from the segments
+        //    TestRouteMatch("~/One/Two", "One", "Two");
 
-            // Удостовериться, что слишком много или слишком мало сегмнтов не приводя к совпадению
-            // ensure that too many or too few segments fails to match
-            TestRouteFail("~/Admin/Index/Segment");
-            TestRouteFail("~/Admin");
-            */
+        //    // Удостовериться, что слишком много или слишком мало сегмнтов не приводя к совпадению
+        //    // ensure that too many or too few segments fails to match
+        //    TestRouteFail("~/Admin/Index/Segment");
+        //    TestRouteFail("~/Admin");
+        //    */
 
-            /* (2)
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Customer", "Customer", "Index");
-            TestRouteMatch("~/Customer/List", "Customer", "List");
-            TestRouteFail("~/Customer/List/All");
-            TestRouteMatch("~/Shop/Index", "Home", "Index");
-            */
+        //    /* (2)
+        //    TestRouteMatch("~/", "Home", "Index");
+        //    TestRouteMatch("~/Customer", "Customer", "Index");
+        //    TestRouteMatch("~/Customer/List", "Customer", "List");
+        //    TestRouteFail("~/Customer/List/All");
+        //    TestRouteMatch("~/Shop/Index", "Home", "Index");
+        //    */
 
-            /* - без id = UrlParameter.Optional
-            TestRouteMatch("~/", "Home", "Index", new { id = "DefaultId" });
-            TestRouteMatch("~/Customer", "Customer", "Index", new { id = "DefaultId" });
-            TestRouteMatch("~/Customer/List", "Customer", "List", new { id = "DefaultId" });
-            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
-            TestRouteFail("~/Customer/List/All/Delete");
-            */
+        //    /* - без id = UrlParameter.Optional
+        //    TestRouteMatch("~/", "Home", "Index", new { id = "DefaultId" });
+        //    TestRouteMatch("~/Customer", "Customer", "Index", new { id = "DefaultId" });
+        //    TestRouteMatch("~/Customer/List", "Customer", "List", new { id = "DefaultId" });
+        //    TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+        //    TestRouteFail("~/Customer/List/All/Delete");
+        //    */
 
-            /* (3)
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Customer", "Customer", "Index");
-            TestRouteMatch("~/Customer/List", "Customer", "List");
-            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
-            TestRouteFail("~/Customer/List/All/Delete");
-            */
+        //    /* (3)
+        //    TestRouteMatch("~/", "Home", "Index");
+        //    TestRouteMatch("~/Customer", "Customer", "Index");
+        //    TestRouteMatch("~/Customer/List", "Customer", "List");
+        //    TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+        //    TestRouteFail("~/Customer/List/All/Delete");
+        //    */
 
-            /* (4)
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Customer", "Customer", "Index");
-            TestRouteMatch("~/Customer/List", "Customer", "List");
-            TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
-            TestRouteMatch("~/Customer/List/All/Delete", "Customer", "List", new { id = "All", catchall = "Delete" });
-            TestRouteMatch("~/Customer/List/All/Delete/Perm", "Customer", "List", new { id = "All", catchall = "Delete/Perm" });
-            */
+        //    /* (4)
+        //    TestRouteMatch("~/", "Home", "Index");
+        //    TestRouteMatch("~/Customer", "Customer", "Index");
+        //    TestRouteMatch("~/Customer/List", "Customer", "List");
+        //    TestRouteMatch("~/Customer/List/All", "Customer", "List", new { id = "All" });
+        //    TestRouteMatch("~/Customer/List/All/Delete", "Customer", "List", new { id = "All", catchall = "Delete" });
+        //    TestRouteMatch("~/Customer/List/All/Delete/Perm", "Customer", "List", new { id = "All", catchall = "Delete/Perm" });
+        //    */
 
-            /* (5)
-            TestRouteMatch("~/", "Home", "Index");
-            TestRouteMatch("~/Home", "Home", "Index");
-            TestRouteMatch("~/Home/Index", "Home", "Index");
-            TestRouteMatch("~/Home/About", "Home", "About");
-            TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
-            TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About", new { id = "MyId", catchall = "More/Segments" });
-            TestRouteFail("~/Home/OtherAction");
-            TestRouteFail("~/Account/Index");
-            TestRouteFail("~/Account/About");
-            */
-        }
+        //    /* (5)
+        //    TestRouteMatch("~/", "Home", "Index");
+        //    TestRouteMatch("~/Home", "Home", "Index");
+        //    TestRouteMatch("~/Home/Index", "Home", "Index");
+        //    TestRouteMatch("~/Home/About", "Home", "About");
+        //    TestRouteMatch("~/Home/About/MyId", "Home", "About", new { id = "MyId" });
+        //    TestRouteMatch("~/Home/About/MyId/More/Segments", "Home", "About", new { id = "MyId", catchall = "More/Segments" });
+        //    TestRouteFail("~/Home/OtherAction");
+        //    TestRouteFail("~/Account/Index");
+        //    TestRouteFail("~/Account/About");
+        //    */
+        //}
+
+
     }
 }

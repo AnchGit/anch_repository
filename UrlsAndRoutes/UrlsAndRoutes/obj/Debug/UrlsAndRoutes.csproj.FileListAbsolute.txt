@@ -31,3 +31,6 @@ D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\bin\Syste
 D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\obj\Debug\UrlsAndRoutes.csprojResolveAssemblyReference.cache
 D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\obj\Debug\UrlsAndRoutes.dll
 D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\obj\Debug\UrlsAndRoutes.pdb
+D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\bin\Antlr3.Runtime.dll
+D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\bin\System.Web.Optimization.dll
+D:\Documents\Anch\Programs\anch_repository\UrlsAndRoutes\UrlsAndRoutes\bin\WebGrease.dll

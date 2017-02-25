@@ -12,7 +12,13 @@
 <body>
     <div>The Controller is: @ViewBag.Controller</div>
     <div>The action is: @ViewBag.Action</div>
-    <div>@Request.UserAgent</div>
+    @*<div>@Request.UserAgent</div>*@
+    <div>
+        This is a URL:
+        @Url.Action("Index", "Home", new { id = "MyId" })
+    </div>
+    <div>@Html.ActionLink("Click me", "Index", "Customer")</div>
+    <div>@Html.RouteLink("Click me", "MyOtherRoute", "Index", "Customer")</div>
 </body>
 </html>
 
