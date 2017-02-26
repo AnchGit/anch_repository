@@ -19,6 +19,12 @@
     </div>
     <div>@Html.ActionLink("Click me", "Index", "Customer")</div>
     <div>@Html.RouteLink("Click me", "MyOtherRoute", "Index", "Customer")</div>
+    <div>
+        @Html.ActionLink("Click me", "GetLegacyURL", new { legacyURL = "~/articles/Windows_3-1_Overview-html" })
+    </div>
+    <div>
+        @Html.ActionLink("Click me", "GetLegacyURL", new { legacyURL = "~/old/.NET_1.0_Class_Library" })
+    </div>
 </body>
 </html>
 

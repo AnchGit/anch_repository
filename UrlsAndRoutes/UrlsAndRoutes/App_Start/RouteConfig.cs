@@ -97,6 +97,10 @@ namespace UrlsAndRoutes
 
             routes.MapMvcAttributeRoutes();
 
+            routes.Add(new Route("SayHello", new CustomRouteHandler()));
+
+            routes.Add(new LegacyRoute("~/articles/Windows_3-1_Overview-html", "~/old/.NET_1.0_Class_Library", "~/mysite/old_html"));
+
             routes.MapRoute("MyRoute", "{controller}/{action}");
             routes.MapRoute("MyOtherRoute", "App/{action}", new { controller = "Home" });
         }
