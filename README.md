@@ -19,3 +19,5 @@ Razor - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 5
 SportsStore - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 7 - Chapter 13
 
 UrlsAndRoutes - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 15 - Chapter 16
+
+Views - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 20
