@@ -10,7 +10,7 @@ EssentialTools - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 6
 
 Filters - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 18
 
-HelperMethods - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 21 - Chapter 22
+HelperMethods - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 21 - Chapter 23
 
 LanguageFeatures - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 4
 
