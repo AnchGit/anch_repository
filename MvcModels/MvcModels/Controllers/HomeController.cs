@@ -55,25 +55,32 @@ namespace MvcModels.Controllers
         //    return View(addresses);
         //}
 
-        public ActionResult Address(FormCollection formData)
+        //public ActionResult Address(FormCollection formData)
+        //{
+        //    IList<AddressSummary> addresses = new List<AddressSummary>();
+        //    //try
+        //    //{
+        //    //    UpdateModel(addresses, formData);
+        //    //}
+        //    //catch (InvalidOperationException ex)
+        //    //{
+        //    //    // Предоставить обратную связь пользователю
+        //    //}
+        //    if (TryUpdateModel(addresses, formData))
+        //    {
+        //        // Продолжить обработку обычным способом
+        //    }
+        //    else
+        //    {
+        //        // Предоставить обратную связь пользователю
+        //    }
+        //    return View(addresses);
+        //}
+
+        public ActionResult Address()
         {
             IList<AddressSummary> addresses = new List<AddressSummary>();
-            //try
-            //{
-            //    UpdateModel(addresses, formData);
-            //}
-            //catch (InvalidOperationException ex)
-            //{
-            //    // Предоставить обратную связь пользователю
-            //}
-            if (TryUpdateModel(addresses, formData))
-            {
-                // Продолжить обработку обычным способом
-            }
-            else
-            {
-                // Предоставить обратную связь пользователю
-            }
+            UpdateModel(addresses);
             return View(addresses);
         }
     }
