@@ -14,6 +14,8 @@ HelperMethods - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 21 - Chapter 23
 
 LanguageFeatures - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 4
 
+MvcModels - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 24
+
 PartyInvites - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 2
 
 Razor - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 5
