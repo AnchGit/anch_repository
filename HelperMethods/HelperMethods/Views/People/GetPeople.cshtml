@@ -9,11 +9,12 @@
         Url = Url.Action("GetPeopleData"),
         LoadingElementId = "loading",
         LoadingElementDuration = 1000,
-        Confirm = "Do you wish to request new data?"
+        Confirm = "Do you wish to request new data?",
+        OnSuccess = "processData"
     };
 }
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     function OnBegin() {
         alert("This is the OnBegin Callback");
     }
@@ -25,6 +26,19 @@
     }
     function OnComplete(request, status) {
         alert("This is the OnComplete Callback: " + status);
+    }
+</script>*@
+
+<script type="text/javascript">
+    function processData(data) {
+        var target = $("#tableBody");
+        target.empty();
+        //alert("This is the OnSuccess Callback: " + data);
+        //alert("This is the OnSuccess Callback: " + data.length);
+        for (var i = 0; i < data.length; i++) {
+            var person = data[i];
+            target.append("<tr><td>" + person.FirstName + "</td><td>" + person.LastName + "</td><td>" + person.Role + "</td></tr>");
+        }
     }
 </script>
 
@@ -63,12 +77,13 @@
         <div class="ajaxLink">
             @Ajax.ActionLink(role, "GetPeople", new { selectedRole = role },
            new AjaxOptions {
-               UpdateTargetId = "tableBody",
+               //UpdateTargetId = "tableBody",
                Url = Url.Action("GetPeopleData", new { selectedRole = role }),
-               OnBegin = "OnBegin",
-               OnFailure = "OnFailure",
-               OnSuccess = "OnSuccess",
-               OnComplete = "OnComplete"
+               OnSuccess = "processData"
+               //OnBegin = "OnBegin",
+               //OnFailure = "OnFailure",
+               //OnSuccess = "OnSuccess",
+               //OnComplete = "OnComplete"
            })
         </div>
     }
