@@ -30,4 +30,6 @@ UrlsAndRoutes - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 15 - Chapter 16
 
 Views - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 20
 
+WebServices - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 27
+
 WorkingWithRazor - Adam Freeman Pro ASP .Net MVC 5 (2013): Chapter 20
