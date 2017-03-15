@@ -3,7 +3,7 @@
 @*@model IEnumerable<Reservation>*@
 
 @{
-    ViewBag.Title = "Reservation";
+    ViewBag.Title = "Reservations";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,12 +11,15 @@
     <script>
         var model = {
             reservations: ko.observableArray(),
-            editor: { name: ko.observable(""), location: ko.observable("")
-            }
+            editor: {
+                name: ko.observable(""),
+                location: ko.observable("")
+            },
+            displaySummary: ko.observable(true)
         };
-        function sendAjaxRequest(httpMethod, callback, url) {
+        function sendAjaxRequest(httpMethod, callback, url, reqData) {
             $.ajax("/api/web" + (url ? "/" + url : ""), {
-                type: httpMethod, success: callback
+                type: httpMethod, success: callback, data: reqData
             });
         }
         function getAllItems() {
@@ -37,9 +40,13 @@
                 }
             }, item.ReservationId);
         }
+        function handleCreateClick() {
+            model.displaySummary(false);
+        }
         function handleEditorClick() {
             sendAjaxRequest("POST", function (newItem) {
                 model.reservations.push(newItem);
+                model.displaySummary(true);
             }, null, {
                 ClientName: model.editor.name,
                 Location: model.editor.location
@@ -56,7 +63,7 @@
     @*<div id="summary" class="section panel panel-primary">
         @Html.Partial("Summary", Model)
     </div>*@
-    <div id="summary" class="section panel panel-primary">
+    <div id="summary" class="section panel panel-primary" data-bind="if: model.displaySummary">
         <div class="panel-heading">Reservation Summary</div>
         <div class="panel-body">
             <table class="table table-striped table-condensed">
@@ -74,9 +81,10 @@
                     </tr>
                 </tbody>
             </table>
+            <button class="btn btn-primary" data-bind="click: handleCreateClick">Create</button>
         </div>
     </div>
-    <div id="editor" class="section panel panel-primary">
+    <div id="editor" class="section panel panel-primary" data-bind="ifnot: model.displaySummary">
         @*@Html.Partial("Editor", new Reservation())*@
         <div class="panel-heading">
             Create Reservation

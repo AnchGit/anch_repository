@@ -5,13 +5,15 @@ namespace WebServices.Controllers
 {
     public class HomeController : Controller
     {
-        private ReservationRepository repo = ReservationRepository.Current;
+        //private ReservationRepository repo = ReservationRepository.Current;
 
         public ViewResult Index()
         {
-            return View(repo.GetAll());
+            //return View(repo.GetAll());
+            return View();
         }
 
+        /*
         public ActionResult Add(Reservation item)
         {
             if (ModelState.IsValid)
@@ -42,5 +44,6 @@ namespace WebServices.Controllers
                 return View("Index");
             }
         }
+        */
     }
 }
