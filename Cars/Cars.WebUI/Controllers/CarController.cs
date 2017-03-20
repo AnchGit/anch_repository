@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cars.Domain.Abstract;
 using Cars.Domain.Entities;
+using System.Collections;
 
 namespace Cars.WebUI.Controllers
 {
     public class CarController : Controller
     {
-        private ICarRepository repository;
+        private ICarRepository carRepo;
+        private IMarkRepository markRepo;
 
-        public CarController(ICarRepository carRepository)
+        public CarController(ICarRepository carRepository, IMarkRepository markRepository)
         {
-            this.repository = carRepository;
+            this.carRepo = carRepository;
+            this.markRepo = markRepository;
         }
         public ViewResult List()
         {
-            return View(repository.Cars);
+            return View(carRepo.Cars);
         }
     }
 }

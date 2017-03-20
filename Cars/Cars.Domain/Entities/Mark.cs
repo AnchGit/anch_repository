@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cars.Domain.Entities
 {
-    class Mark
+    public class Mark
     {
-        public int MarID { get; set; }
+        public int MarkID { get; set; }
         public string Name { get; set; }
+
+        public virtual IEnumerable<Car> Cars { get; set; }
     }
 }

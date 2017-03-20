@@ -78,8 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICarRepository.cs" />
+    <Compile Include="Abstract\IMarkRepository.cs" />
     <Compile Include="Concrete\EFDbCarRepository.cs" />
     <Compile Include="Concrete\EFDBContext.cs" />
+    <Compile Include="Concrete\EFDBMarkRepository.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\Mark.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

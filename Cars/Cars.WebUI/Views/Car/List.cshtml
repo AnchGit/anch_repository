@@ -7,9 +7,21 @@
 
 @foreach (var car in Model)
 {
-    <div>
-        <h3>@car.Model</h3>
-        <h4>@car.Price.ToString("c")</h4>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Mark</th>
+                <th>Model</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(c => car.Mark.Name)</td>
+                <td>@Html.DisplayFor(c => car.Model)</td>
+                <td>@Html.DisplayFor(c => car.Price)</td>
+            </tr>
+        </tbody>
+    </table>
 }
 

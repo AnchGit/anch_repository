@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using Cars.Domain.Entities;
 using Cars.Domain.Abstract;
 
@@ -10,7 +12,7 @@ namespace Cars.Domain.Concrete
 
         public IEnumerable<Car> Cars
         {
-            get { return context.Cars; }
+            get { return context.Cars.Include(c => c.Mark); }
         }
     }
 }
