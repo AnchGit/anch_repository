@@ -1,0 +1,50 @@
+﻿@model Cars.WebUI.Models.ShowRoom
+
+@{
+    ViewBag.Title = "ShowRoom";
+}
+
+<table class="table">
+    <thead class="table-hover">
+        <tr>
+            <th>Mark</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Engine</th>
+            <th>Issue</th>
+            <th>Price</th>
+            <th class="text-right">Actions</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Cars)
+        {
+            <tr>
+                <td>@Html.DisplayFor(c => car.Mark.Name)</td>
+                <td>@Html.DisplayFor(c => car.Model)</td>
+                <td>@Html.DisplayFor(c => car.Color)</td>
+                <td>@Html.DisplayFor(c => car.Engine)</td>
+                <td>@Html.DisplayFor(c => car.IssueDate)</td>
+                <td>@car.Price.ToString("c")</td>
+                <td>
+                    @using (Html.BeginForm("Edit", "Admin"))
+                    {
+                        @Html.Hidden("CarID", car.CarID)
+                        <input type="submit" class="btn" value="Edit"/>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Admin"))
+                    {
+                        @Html.HiddenFor(c => car.CarID)
+                        <input type="submit" class="btn" value="Delete" />
+                    }
+                </td>   
+            </tr>
+        }
+    </tbody>
+</table>
+<p>@Html.ActionLink("Add Car", "CreateCar")</p>
+<p>@Html.ActionLink("Add Mark", "CreateMark")</p>
+

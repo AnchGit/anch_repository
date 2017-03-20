@@ -19,6 +19,8 @@ namespace Cars.Domain.Entities
         public string Model { get; set; }
         public string Color { get; set; }
         public decimal Engine { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime IssueDate { get; set; }
         public decimal Price { get; set; }
     }

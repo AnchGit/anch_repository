@@ -5,23 +5,25 @@
     ViewBag.Title = "Cars";
 }
 
-@foreach (var car in Model)
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Mark</th>
-                <th>Model</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
+
+<table class="table">
+    <thead class="table-hover">
+        <tr>
+            <th>Mark</th>
+            <th>Model</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
             <tr>
                 <td>@Html.DisplayFor(c => car.Mark.Name)</td>
                 <td>@Html.DisplayFor(c => car.Model)</td>
-                <td>@Html.DisplayFor(c => car.Price)</td>
+                <td>@car.Price.ToString("c")</td>
             </tr>
-        </tbody>
-    </table>
-}
+        }
+    </tbody>
+</table>
+
 
