@@ -4,5 +4,33 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit @Model.Model</h2>
+
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="panel-primary">
+        @Html.HiddenFor(c => c.CarID)
+        @foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+            switch (property.PropertyName)
+            {
+                case "CarID":
+                case "Mark":
+                    break;
+                case "MarkID":
+                    <label>@property.PropertyName</label>
+                    <p>@Html.DropDownListFor(c => c.MarkID, ViewBag.Marks as SelectList)</p>
+                    break;
+                default:
+                    <label>@property.PropertyName</label>
+                    @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                    break;
+            }
+        }
+        <input type="submit" value="Save" class="btn-default" />
+        <div class="btn-link">
+            @Html.ActionLink("Cancel and return to List", "AdminList", null, new { @class = "btn-default" })
+        </div>
+    </div>
+}
 

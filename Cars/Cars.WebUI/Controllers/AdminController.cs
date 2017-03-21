@@ -14,15 +14,18 @@ namespace Cars.WebUI.Controllers
     {
         private ICarRepository carRepo;
         private IMarkRepository markRepo;
+        private ShowRoom model;
+        private SelectList marks;
 
         public AdminController(ICarRepository carRepository, IMarkRepository markRepository)
         {
-            this.carRepo = carRepository;
-            this.markRepo = markRepository;
+            carRepo = carRepository;
+            markRepo = markRepository;
+            marks = new SelectList(markRepo.Marks, "MarkID", "Name");
         }
         public ActionResult AdminList()
         {
-            ShowRoom model = new ShowRoom { Cars = carRepo.Cars, Marks = markRepo.Marks };
+            model = new ShowRoom { Cars = carRepo.Cars, Marks = markRepo.Marks };
             return View(model);
         }
 
@@ -30,7 +33,40 @@ namespace Cars.WebUI.Controllers
         {
             Car car = carRepo.Cars
                 .FirstOrDefault(c => c.CarID == carId);
+            ViewBag.Marks = marks;
             return View(car);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Car car)
+        {
+            ViewBag.Marks = marks;
+            if (ModelState.IsValid)
+            {
+                carRepo.SaveCar(car);
+                return RedirectToAction("AdminList");
+            }
+            else
+            {
+                return View(car);
+            }
+        }
+
+        public ViewResult CreateCar()
+        {
+            ViewBag.Marks = marks;
+            return View("Edit", new Car());
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCar(int carID)
+        {
+            Car deletedCar = carRepo.DeleteCar(carID);
+            if (deletedCar != null)
+            {
+                //TempData["message"] = string.Format("{0} {1} was deleted", deletedCar.Mark.Name, deletedCar.Model);
+            }
+            return RedirectToAction("AdminList");
         }
     }
 }

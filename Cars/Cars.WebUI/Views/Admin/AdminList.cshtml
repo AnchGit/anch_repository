@@ -28,16 +28,16 @@
                 <td>@Html.DisplayFor(c => car.IssueDate)</td>
                 <td>@car.Price.ToString("c")</td>
                 <td>
-                    @using (Html.BeginForm("Edit", "Admin"))
+                    @using (Html.BeginForm("Edit", "Admin", FormMethod.Get))
                     {
                         @Html.Hidden("CarID", car.CarID)
                         <input type="submit" class="btn" value="Edit"/>
                     }
                 </td>
                 <td>
-                    @using (Html.BeginForm("Delete", "Admin"))
+                    @using (Html.BeginForm("DeleteCar", "Admin"))
                     {
-                        @Html.HiddenFor(c => car.CarID)
+                        @Html.Hidden("CarID", car.CarID)
                         <input type="submit" class="btn" value="Delete" />
                     }
                 </td>   
