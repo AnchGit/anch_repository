@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home", "List", "Car", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Car", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,9 +25,16 @@
             </div>
         </div>
     </div>
+    <div class="row panel">
+        <div id="marks" class="col-xs-2">
+            @Html.Action("Menu", "Nav")
+        </div>
+        <div class="col-xs-9">
+            @RenderBody()
+        </div>
+    </div>
 
     <div class="container body-content">
-        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year</p>

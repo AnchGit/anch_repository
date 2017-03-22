@@ -1,5 +1,6 @@
-﻿@using Cars.Domain.Entities
-@model IEnumerable<Car>
+﻿@*@using Cars.Domain.Entities
+@model IEnumerable<Car>*@
+@model Cars.WebUI.Models.ShowRoom
 
 @{
     ViewBag.Title = "Cars";
@@ -15,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var car in Model)
+        @foreach (var car in Model.Cars)
         {
             <tr>
                 <td>@Html.DisplayFor(c => car.Mark.Name)</td>

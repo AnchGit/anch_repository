@@ -25,14 +25,14 @@ namespace Cars.WebUI.Controllers
         }
         public ActionResult AdminList()
         {
-            model = new ShowRoom { Cars = carRepo.Cars, Marks = markRepo.Marks };
+            model = new ShowRoom { Cars = carRepo.Cars, CurrentMark = null };
             return View(model);
         }
 
         public ViewResult Edit(int carId)
         {
             Car car = carRepo.Cars
-                .FirstOrDefault(c => c.CarID == carId);
+                        .FirstOrDefault(c => c.CarID == carId);
             ViewBag.Marks = marks;
             return View(car);
         }
@@ -61,7 +61,7 @@ namespace Cars.WebUI.Controllers
         [HttpPost]
         public ActionResult DeleteCar(int carID)
         {
-            Car deletedCar = carRepo.DeleteCar(carID);
+            Car deletedCar =  carRepo.DeleteCar(carID);
             if (deletedCar != null)
             {
                 //TempData["message"] = string.Format("{0} {1} was deleted", deletedCar.Mark.Name, deletedCar.Model);

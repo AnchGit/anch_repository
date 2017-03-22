@@ -9,6 +9,6 @@ namespace Cars.WebUI.Models
     public class ShowRoom
     {
         public IEnumerable<Car> Cars { get; set; }
-        public IEnumerable<Mark> Marks { get; set; }
+        public string CurrentMark { get; set; }
     }
 }

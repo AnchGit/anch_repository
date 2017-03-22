@@ -1,0 +1,8 @@
+﻿@model IEnumerable<string>
+
+@Html.ActionLink("All", "List", "Car", null, new { @class = "btn btn-block btn-default btn-lg" })
+
+@foreach (var mark in Model)
+{
+    @Html.RouteLink(mark, new { controller = "Car", action = "List", selected = mark }, new { @class = "btn btn-block btn-default btn-lg" + (mark == ViewBag.SelectedMark ? " btn-primary" : "") })
+}
