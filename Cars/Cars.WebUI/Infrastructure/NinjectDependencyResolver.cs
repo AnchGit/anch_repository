@@ -7,6 +7,8 @@ using Moq;
 using Cars.Domain.Abstract;
 using Cars.Domain.Concrete;
 using Cars.Domain.Entities;
+using Cars.WebUI.Infrastructure.Abstract;
+using Cars.WebUI.Infrastructure.Concrete;
 
 namespace Cars.WebUI.Infrastructure
 {
@@ -31,8 +33,9 @@ namespace Cars.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<ICarRepository>().To<EFDbCarRepository>();
+            kernel.Bind<ICarRepository>().To<EFDBCarRepository>();
             kernel.Bind<IMarkRepository>().To<EFDBMarkRepository>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }

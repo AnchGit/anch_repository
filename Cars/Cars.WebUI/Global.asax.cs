@@ -15,7 +15,7 @@ namespace Cars.WebUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Database.SetInitializer<EFDBContext>(null);
+            //Database.SetInitializer<EFDBContext>(null);
         }
     }
 }

@@ -64,7 +64,7 @@ namespace Cars.WebUI.Controllers
             Car deletedCar =  carRepo.DeleteCar(carID);
             if (deletedCar != null)
             {
-                //TempData["message"] = string.Format("{0} {1} was deleted", deletedCar.Mark.Name, deletedCar.Model);
+                TempData["message"] = string.Format("MarkID: {0}, Model: {1} - was deleted", deletedCar.MarkID, deletedCar.Model);
             }
             return RedirectToAction("AdminList");
         }

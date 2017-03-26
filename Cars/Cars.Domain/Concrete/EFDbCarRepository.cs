@@ -6,7 +6,7 @@ using Cars.Domain.Abstract;
 
 namespace Cars.Domain.Concrete
 {
-    public class EFDbCarRepository : ICarRepository
+    public class EFDBCarRepository : ICarRepository
     {
         private EFDBContext context = new EFDBContext();
 
