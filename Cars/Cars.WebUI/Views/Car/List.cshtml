@@ -13,6 +13,7 @@
             <th>Mark</th>
             <th>Model</th>
             <th>Price</th>
+            <th>Count</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
                 <td>@Html.DisplayFor(c => car.Mark.Name)</td>
                 <td>@Html.DisplayFor(c => car.Model)</td>
                 <td>@car.Price.ToString("c")</td>
+                <td></td>
             </tr>
         }
     </tbody>

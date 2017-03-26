@@ -38,6 +38,12 @@ namespace Cars.WebUI.Controllers
                        .Where(c => selected == null || c.MarkID == mark.MarkID)
                        .OrderBy(c => c.Mark.Name),
                 CurrentMark = selected
+                //Cars = carRepo.Cars
+                //       .Where(c => selected == null || c.MarkID == mark.MarkID)
+                //       .OrderBy(c => c.Mark.Name)
+                //       .GroupBy(c => new { c.MarkID, c.Model })
+                //       .Select(c => c.FirstOrDefault()),
+                //CurrentMark = selected
             };
             return View(model);
         }
