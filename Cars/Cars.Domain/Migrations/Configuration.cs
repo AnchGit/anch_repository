@@ -5,16 +5,15 @@ namespace Cars.Domain.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Cars.Domain.Concrete.EFDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Cars.Domain.Identity.EFDBIdentity>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = false;
-            ContextKey = "Cars.Domain.Concrete.EFDBContext";
         }
 
-        protected override void Seed(Cars.Domain.Concrete.EFDBContext context)
+        protected override void Seed(Cars.Domain.Identity.EFDBIdentity context)
         {
             //  This method will be called after migrating to the latest version.
 

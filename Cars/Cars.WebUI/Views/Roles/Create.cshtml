@@ -1,0 +1,20 @@
+﻿@model Cars.WebUI.Models.CreateRoleModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create role</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.ValidationSummary(true, "");
+        <p>Name: @Html.EditorFor(r => r.Name)</p>
+        <p>Description: @Html.EditorFor(r => r.Description)</p>
+        <p><input type="submit" name="Add" /></p>
+    </div>
+}
+

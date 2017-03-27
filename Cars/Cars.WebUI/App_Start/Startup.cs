@@ -14,6 +14,7 @@ namespace Cars.WebUI.App_Start
             // настраиваем контекст и менеджер
             app.CreatePerOwinContext<EFDBIdentity>(EFDBIdentity.Create);
             app.CreatePerOwinContext<UserManager>(UserManager.Create);
+            app.CreatePerOwinContext<RoleManager>(RoleManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,

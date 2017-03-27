@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Cars.Domain.Identity.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Roles</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var role in Model)
+    {
+        <tr>
+            <td>@role.Name</td>
+            <td>@role.Description</td>
+            <td>
+                @Html.ActionLink("Edit","Edit", new { id = role.Id })
+                @Html.ActionLink("Delete","Delete", new { id = role.Id })
+           </td>
+        </tr>
+    }
+</table>
+

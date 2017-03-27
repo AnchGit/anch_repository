@@ -21,8 +21,6 @@ D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\System.Web
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.csprojResolveAssemblyReference.cache
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.dll
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.pdb
-D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migrations.InitialCreate.resources
-D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.csproj.GenerateResource.Cache
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.AspNet.Identity.Owin.dll

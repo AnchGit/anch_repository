@@ -31,6 +31,8 @@ namespace Cars.WebUI.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -39,6 +41,9 @@ namespace Cars.WebUI.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //await UserManager.AddToRoleAsync(user.Id, "client");
+                    UserManager.AddToRole(user.Id, "client");
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     RedirectToAction("Login", "Account");
                 }
                 else
@@ -82,6 +87,56 @@ namespace Cars.WebUI.Controllers
                 }
             }
             ViewBag.returnUrl = returnUrl;
+            return View(model);
+        }
+
+        public async Task<ActionResult> Delete()
+        {
+            User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+            if (user != null)
+            {
+                IdentityResult result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Logout", "Account");
+                }
+            }
+            return RedirectToAction("Index", "Car");
+        }
+
+        public async Task<ActionResult> Edit()
+        {
+            User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+            if (user != null)
+            {
+                RegisterModel model = new RegisterModel { Name = user.Name, Surname = user.Surname };
+                return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(RegisterModel model)
+        {
+            User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+            if (user != null)
+            {
+                user.Name = model.Name;
+                user.Surname = model.Surname;
+                IdentityResult result = await UserManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Car");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Something wrong... Can't delete user...");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Can't find user");
+            }
             return View(model);
         }
     }

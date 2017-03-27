@@ -1,0 +1,21 @@
+﻿@model Cars.WebUI.Models.EditRoleModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit role</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary(true, "")
+        @Html.HiddenFor(r => r.Id)
+        <p>Name: @Html.EditorFor(r => r.Name)</p>
+        <p>Descriptoin: @Html.EditorFor(r => r.Description)</p>
+        <p><input type="submit" value="Edit" /></p>
+    </div>
+}

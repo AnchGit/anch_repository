@@ -1,0 +1,16 @@
+﻿@model IList<string>
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>About</h2>
+
+@ViewBag.Message
+
+@foreach (var role in Model)
+{
+    <p>@role</p>
+}
+
