@@ -41,9 +41,7 @@ namespace Cars.WebUI.Controllers
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    //await UserManager.AddToRoleAsync(user.Id, "client");
-                    UserManager.AddToRole(user.Id, "client");
-                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    await UserManager.AddToRoleAsync(user.Id, "client");
                     RedirectToAction("Login", "Account");
                 }
                 else

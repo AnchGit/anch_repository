@@ -94,7 +94,7 @@ namespace Cars.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "client")]
+        [Authorize(Roles = "admin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
