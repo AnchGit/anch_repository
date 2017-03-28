@@ -35,5 +35,7 @@ namespace Cars.Domain.Entities
         [Required]
         [UIHint("Boolean")]
         public bool? IsAvailable { get; set; }
+
+        public virtual Order Order { get; set; }
     }
 }

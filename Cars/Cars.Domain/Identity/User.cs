@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Cars.Domain.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Cars.Domain.Identity
 {
@@ -10,5 +12,7 @@ namespace Cars.Domain.Identity
 
         [Required(ErrorMessage = "Please enter a surname")]
         public string Surname { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

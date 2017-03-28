@@ -30,6 +30,7 @@ namespace Cars.WebUI.Infrastructure
         {
             kernel.Bind<ICarRepository>().To<EFDBCarRepository>();
             kernel.Bind<IMarkRepository>().To<EFDBMarkRepository>();
+            kernel.Bind<IOrderRepository>().To<EFDBOrderRepository>();
         }
     }
 }

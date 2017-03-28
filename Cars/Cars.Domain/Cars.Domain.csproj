@@ -119,9 +119,11 @@
   <ItemGroup>
     <Compile Include="Abstract\ICarRepository.cs" />
     <Compile Include="Abstract\IMarkRepository.cs" />
+    <Compile Include="Abstract\IOrderRepository.cs" />
     <Compile Include="Concrete\EFDBCarRepository.cs" />
     <Compile Include="Concrete\EFDBContext.cs" />
     <Compile Include="Concrete\EFDBMarkRepository.cs" />
+    <Compile Include="Concrete\EFDBOrderRepository.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Identity\EFDBIdentity.cs" />
     <Compile Include="Entities\Car.cs" />
