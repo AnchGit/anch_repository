@@ -1,19 +1,20 @@
-namespace Cars.Domain.Migrations
+namespace Cars.Domain.Migration.EFDBContext
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Cars.Domain.Identity.EFDBIdentity>
+    internal sealed class Configuration : DbMigrationsConfiguration<Cars.Domain.Concrete.EFDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = false;
+            MigrationsDirectory = @"Migration\EFDBContext";
         }
 
-        protected override void Seed(Cars.Domain.Identity.EFDBIdentity context)
+        protected override void Seed(Cars.Domain.Concrete.EFDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

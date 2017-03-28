@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using Cars.Domain.Entities;
 using Cars.Domain.Abstract;
 

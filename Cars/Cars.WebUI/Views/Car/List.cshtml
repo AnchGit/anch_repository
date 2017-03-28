@@ -13,7 +13,7 @@
             <th>Mark</th>
             <th>Model</th>
             <th>Price</th>
-            <th>Count</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +23,16 @@
                 <td>@Html.DisplayFor(c => car.Mark.Name)</td>
                 <td>@Html.DisplayFor(c => car.Model)</td>
                 <td>@car.Price.ToString("c")</td>
-                <td></td>
+                <td>
+                    @if (car.IsAvailable == true)
+                    {
+                        using (Html.BeginForm("Order", "Car", FormMethod.Get))
+                        {
+                            @Html.Hidden("CarID", car.CarID)
+                            <input type="submit" class="btn" value="Order" />
+                        }
+                    }
+                </td>
             </tr>
         }
     </tbody>

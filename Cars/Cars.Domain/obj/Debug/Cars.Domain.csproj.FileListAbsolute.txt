@@ -40,3 +40,6 @@ D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migration.EFDBContext.InitialDatabaseCreation.resources
+D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.csproj.GenerateResource.Cache
+D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migration.EFDBIdentity.InitialDatabaseCreation.resources

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cars.Domain.Abstract;
 using Cars.Domain.Entities;
-using System.Collections;
 using Cars.WebUI.Models;
+using Cars.Domain.Identity;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Cars.WebUI.Controllers
 {
@@ -46,6 +45,30 @@ namespace Cars.WebUI.Controllers
                 //CurrentMark = selected
             };
             return View(model);
+        }
+
+        public ActionResult Order(int carId)
+        {
+            Car car = carRepo.Cars
+                .FirstOrDefault(c => c.CarID == carId);
+            UserManager userManager = HttpContext.GetOwinContext().GetUserManager<UserManager>();
+            User user = userManager.FindByEmail(User.Identity.Name);
+            if (user != null)
+            {
+                ViewBag.User = user;
+                return View(car);
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
+        [HttpPost]
+        public string Order(Car car)
+        {
+            if (ModelState.IsValid)
+            {
+                return "Successfully Order";
+            }
+            return "Something wrong...";
         }
     }
 }

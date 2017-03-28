@@ -28,6 +28,11 @@
                     <label>@property.PropertyName</label>
                     <p>@Html.EditorFor(c => c.IssueDate, null, new { @class = "form-control" })</p>
                     break;
+                case "IsAvailable":
+                    <p>@Html.ValidationMessageFor(c => c.IsAvailable)</p>
+                    <label>@property.PropertyName</label>
+                    <p>@Html.EditorFor(c => c.IsAvailable, null, new { @class = "form-control" })</p>
+                    break;
                 default:
                     <p>@Html.ValidationMessage(property.PropertyName)</p>
                     <label>@property.PropertyName</label>

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace Cars.Domain.Entities
@@ -36,5 +31,9 @@ namespace Cars.Domain.Entities
         [Required]
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal Price { get; set; }
+
+        [Required]
+        [UIHint("Boolean")]
+        public bool? IsAvailable { get; set; }
     }
 }

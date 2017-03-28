@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Linq;
 using Ninject;
-using Moq;
 using Cars.Domain.Abstract;
 using Cars.Domain.Concrete;
-using Cars.Domain.Entities;
-using Cars.WebUI.Infrastructure.Abstract;
-using Cars.WebUI.Infrastructure.Concrete;
 
 namespace Cars.WebUI.Infrastructure
 {
@@ -35,7 +30,6 @@ namespace Cars.WebUI.Infrastructure
         {
             kernel.Bind<ICarRepository>().To<EFDBCarRepository>();
             kernel.Bind<IMarkRepository>().To<EFDBMarkRepository>();
-            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }

@@ -1,0 +1,20 @@
+﻿@model Cars.Domain.Entities.Car
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order: @Model.Mark.Name @Model.Model</h2>
+
+@using (Html.BeginForm("Order", "Car", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="column">
+        @Html.EditorForModel()
+    </div>
+    <div class="column">
+        @ViewBag.User.Name
+    </div>
+    <input type="submit" value="Make Order" />
+}
+

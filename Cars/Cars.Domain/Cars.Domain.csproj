@@ -122,6 +122,7 @@
     <Compile Include="Concrete\EFDBCarRepository.cs" />
     <Compile Include="Concrete\EFDBContext.cs" />
     <Compile Include="Concrete\EFDBMarkRepository.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Identity\EFDBIdentity.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Identity\Role.cs" />
@@ -129,12 +130,29 @@
     <Compile Include="Identity\User.cs" />
     <Compile Include="Entities\Mark.cs" />
     <Compile Include="Identity\UserManager.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.cs" />
+    <Compile Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201703281707361_InitialDatabaseCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\EFDBContext\Configuration.cs" />
+    <Compile Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.cs" />
+    <Compile Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201703281707565_InitialDatabaseCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\EFDBIdentity\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.resx">
+      <DependentUpon>201703281707361_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.resx">
+      <DependentUpon>201703281707565_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
