@@ -1,4 +1,4 @@
-namespace Cars.Domain.Migration.EFDBContext
+namespace Cars.Domain.Migrations.EFDBContext
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -33,12 +33,28 @@ namespace Cars.Domain.Migration.EFDBContext
                     })
                 .PrimaryKey(t => t.MarkID);
             
+            CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        OrderID = c.Int(nullable: false),
+                        CarID = c.Int(nullable: false),
+                        UserID = c.String(nullable: false),
+                        OrderDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrderID)
+                .ForeignKey("dbo.Cars", t => t.OrderID)
+                .Index(t => t.OrderID);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Orders", "OrderID", "dbo.Cars");
             DropForeignKey("dbo.Cars", "MarkID", "dbo.Marks");
+            DropIndex("dbo.Orders", new[] { "OrderID" });
             DropIndex("dbo.Cars", new[] { "MarkID" });
+            DropTable("dbo.Orders");
             DropTable("dbo.Marks");
             DropTable("dbo.Cars");
         }

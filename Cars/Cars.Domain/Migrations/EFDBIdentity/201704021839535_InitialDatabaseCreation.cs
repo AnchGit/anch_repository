@@ -1,4 +1,4 @@
-namespace Cars.Domain.Migration.EFDBIdentity
+namespace Cars.Domain.Migrations.EFDBIdentity
 {
     using System;
     using System.Data.Entity.Migrations;

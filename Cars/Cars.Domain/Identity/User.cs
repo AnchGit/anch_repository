@@ -13,6 +13,6 @@ namespace Cars.Domain.Identity
         [Required(ErrorMessage = "Please enter a surname")]
         public string Surname { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        //public virtual IEnumerable<Order> Orders { get; set; }
     }
 }

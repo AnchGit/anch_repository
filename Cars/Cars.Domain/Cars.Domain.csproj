@@ -132,16 +132,16 @@
     <Compile Include="Identity\User.cs" />
     <Compile Include="Entities\Mark.cs" />
     <Compile Include="Identity\UserManager.cs" />
-    <Compile Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.cs" />
-    <Compile Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201703281707361_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\EFDBContext\201704021839323_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\EFDBContext\201704021839323_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201704021839323_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migration\EFDBContext\Configuration.cs" />
-    <Compile Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.cs" />
-    <Compile Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201703281707565_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\EFDBContext\Configuration.cs" />
+    <Compile Include="Migrations\EFDBIdentity\201704021839535_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\EFDBIdentity\201704021839535_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201704021839535_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migration\EFDBIdentity\Configuration.cs" />
+    <Compile Include="Migrations\EFDBIdentity\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,11 +149,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migration\EFDBContext\201703281707361_InitialDatabaseCreation.resx">
-      <DependentUpon>201703281707361_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\EFDBContext\201704021839323_InitialDatabaseCreation.resx">
+      <DependentUpon>201704021839323_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migration\EFDBIdentity\201703281707565_InitialDatabaseCreation.resx">
-      <DependentUpon>201703281707565_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\EFDBIdentity\201704021839535_InitialDatabaseCreation.resx">
+      <DependentUpon>201704021839535_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

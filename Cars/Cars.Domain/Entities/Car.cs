@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace Cars.Domain.Entities
@@ -36,6 +37,9 @@ namespace Cars.Domain.Entities
         [UIHint("Boolean")]
         public bool? IsAvailable { get; set; }
 
+        //[ForeignKey("Order")]
+        //public int OrderID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         public virtual Order Order { get; set; }
     }
 }
