@@ -1,19 +1,47 @@
-﻿@model Cars.Domain.Entities.Car
+﻿@model Cars.WebUI.Models.OrderModel
 
 @{
     ViewBag.Title = "Order";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Order: @Model.Mark.Name @Model.Model</h2>
+<h2>Order: @ViewBag.Car.Mark.Name @ViewBag.Car.Model</h2>
 
 @using (Html.BeginForm("Order", "Car", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="column">
+    @*<div class="column">
         @Html.EditorForModel()
     </div>
     <div class="column">
         @ViewBag.User.Name
+    </div>*@
+    <div class="panel-primary">
+        @Html.HiddenFor(o => o.Order.OrderID)
+        @Html.DisplayFor(o => o.Order.OrderDate)
+        @Html.HiddenFor(o => o.Order.CarID)
+        @Html.HiddenFor(o => o.Order.Car)
+        @Html.HiddenFor(o => o.Order.UserID)
+        @Html.HiddenFor(o => o.User.Id)
+        @Html.HiddenFor(o => o.Car.CarID)
+        @*@foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+             switch (property.PropertyName)
+             {
+                    case "OrderID":
+                    case "Car":
+                        break;
+                    case "CarID":
+                        //@Model.CarID = ViewBag.Car.CarID;
+                        break;
+                    case "UserID":
+                        //@Model.UserID = ViewBag.User.Id;
+                        break;
+                    case "OrderDate":
+                        //@Model.OrderDate = DateTime.Now.Date;
+                        //@Html.Display("OrderDate", )
+                        break;
+            }
+        }*@
     </div>
     <input type="submit" value="Make Order" />
 }

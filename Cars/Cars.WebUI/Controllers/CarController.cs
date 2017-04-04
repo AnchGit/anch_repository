@@ -14,12 +14,14 @@ namespace Cars.WebUI.Controllers
     {
         private ICarRepository carRepo;
         private IMarkRepository markRepo;
+        private IOrderRepository orderRepo;
         private ShowRoom model;
 
-        public CarController(ICarRepository carRepository, IMarkRepository markRepository)
+        public CarController(ICarRepository carRepository, IMarkRepository markRepository, IOrderRepository orderRepository)
         {
             this.carRepo = carRepository;
             this.markRepo = markRepository;
+            this.orderRepo = orderRepository;
         }
 
         public ViewResult Index()
@@ -56,19 +58,25 @@ namespace Cars.WebUI.Controllers
             if (user != null)
             {
                 ViewBag.User = user;
-                return View(car);
+                ViewBag.Car = car;
+                OrderModel orderModel = new OrderModel { Order = new Order { }, Car = car, User = user };
+                return View(orderModel);
             }
             return RedirectToAction("Login", "Account");
         }
 
         [HttpPost]
-        public string Order(Car car)
+        public ActionResult Order(OrderModel orderModel)
         {
             if (ModelState.IsValid)
             {
-                return "Successfully Order";
+                orderRepo.SaveOrder(orderModel.Order, orderModel.Car, orderModel.User);
+                return RedirectToAction("List");
             }
-            return "Something wrong...";
+            else
+            {
+                return View("Index");
+            }
         }
     }
 }

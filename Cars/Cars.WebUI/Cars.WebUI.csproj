@@ -212,6 +212,7 @@
     <Compile Include="Models\CreateRoleModel.cs" />
     <Compile Include="Models\EditRoleModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ShowRoom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
