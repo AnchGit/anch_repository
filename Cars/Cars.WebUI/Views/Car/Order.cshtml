@@ -16,13 +16,18 @@
         @ViewBag.User.Name
     </div>*@
     <div class="panel-primary">
-        @Html.HiddenFor(o => o.Order.OrderID)
+    @Html.HiddenFor(o => o.Order.OrderID)
+        @Html.HiddenFor(o => o.Order.UserID)
+    @Html.HiddenFor(o => o.User.Id)
+        @Html.HiddenFor(o => o.User.Name)    
+        @Html.HiddenFor(o => o.User.Surname)
+    @*@Html.HiddenFor(o => o.Order.OrderID)
         @Html.DisplayFor(o => o.Order.OrderDate)
         @Html.HiddenFor(o => o.Order.CarID)
         @Html.HiddenFor(o => o.Order.Car)
         @Html.HiddenFor(o => o.Order.UserID)
         @Html.HiddenFor(o => o.User.Id)
-        @Html.HiddenFor(o => o.Car.CarID)
+        @Html.HiddenFor(o => o.Car.CarID)*@
         @*@foreach (var property in ViewData.ModelMetadata.Properties)
         {
              switch (property.PropertyName)

@@ -17,11 +17,11 @@ namespace Cars.Domain.Entities
         public int CarID{ get; set; }
         public virtual Car Car { get; set; }
 
-        [Required]
+        //[Required]
         public string UserID { get; set; }
         //public virtual OrderUser OrderUser { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime OrderDate { get; set; }
     }
 

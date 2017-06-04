@@ -1,0 +1,18 @@
+namespace Cars.Domain.Migrations.EFDBContext
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Required : DbMigration
+    {
+        public override void Up()
+        {
+            AlterColumn("dbo.Orders", "UserID", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            AlterColumn("dbo.Orders", "UserID", c => c.String(nullable: false));
+        }
+    }
+}

@@ -43,3 +43,4 @@ D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\bin\Debug\Newtonsoft
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migrations.EFDBContext.InitialDatabaseCreation.resources
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.csproj.GenerateResource.Cache
 D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migrations.EFDBIdentity.InitialDatabaseCreation.resources
+D:\Documents\Anch\Programs\anch_repository\Cars\Cars.Domain\obj\Debug\Cars.Domain.Migrations.EFDBContext.Required.resources
